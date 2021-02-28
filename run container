@@ -1,7 +1,11 @@
 #!/bin/sh
 
-# Destroy any previous container.
-docker stop CT-NG >&- 2>&-
-docker rm CT-NG >&- 2>&-
+# Destroy any previous container unless $1 is non-empty
+if [ -z "$1" ]; then
+    docker stop CT-NG >&- 2>&-
+    docker rm CT-NG >&- 2>&-
 
-docker run -it --name=CT-NG ct-ng "$@"
+    docker run -it --name=CT-NG ct-ng "$@"
+else
+    docker start -ai CT-NG
+fi
