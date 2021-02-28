@@ -1,7 +1,9 @@
 #!/bin/sh
 
 if [ -z "$1" ]; then
-    docker start -ai CT-NG
+    docker start CT-NG
+    docker exec -it CT-NG bash
+    docker kill CT-NG
 else
     docker stop CT-NG >&- 2>&-
     docker rm CT-NG >&- 2>&-
