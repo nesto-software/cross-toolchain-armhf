@@ -1,4 +1,4 @@
-FROM debian:7
+FROM debian:10
 MAINTAINER Bilge <bilge@scriptfusion.com>
 
 WORKDIR	/root
@@ -6,12 +6,12 @@ WORKDIR	/root
 # Install dependencies.
 RUN	apt-get update && DEBIAN_FRONTEND=noninteractive\
 	apt-get install -y build-essential gperf bison flex texinfo wget gawk libtool automake libncurses5-dev help2man\
-		ca-certificates
+		ca-certificates unzip libtool-bin libtool-doc
 
 # Download and compile crosstool-NG.
-RUN	wget http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.22.0.tar.xz 2>&1 &&\
+RUN	wget http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.24.0.tar.xz 2>&1 &&\
 	tar xf crosstool-ng-*.tar* &&\
-	cd crosstool-ng &&\
+	cd crosstool-ng-1.24.0 &&\
 	./configure && make && make install &&\
 	rm -rf ../crosstool-ng*
 
@@ -28,6 +28,7 @@ RUN	mkdir crosstool-NG /etc/crosstool-ng /etc/uclibc &&\
 
 COPY	in/toolchain-build	/usr/local/bin/
 COPY	in/crosstool-configure	/usr/local/bin/
+COPY	in/crosstool-upgradeconfig	/usr/local/bin/
 COPY	in/uclibc-configure	/usr/local/bin/
 COPY	in/crosstool-ng.conf	/root/crosstool-NG/.config
 COPY	in/uclibc.conf		/root/uClibc/.config
