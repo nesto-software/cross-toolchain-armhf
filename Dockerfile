@@ -26,6 +26,9 @@ RUN	mkdir crosstool-NG /etc/crosstool-ng /etc/uclibc &&\
 	ln -s /root/crosstool-NG/.config /etc/crosstool-ng/crosstool-ng.conf &&\
 	ln -s /root/uClibc/.config /etc/uclibc/uclibc.conf
 
+# Install dependencies needed by linux kernel
+RUN apt-get install -y git rsync
+
 COPY	in/toolchain-build	/usr/local/bin/
 COPY	in/crosstool-configure	/usr/local/bin/
 COPY	in/crosstool-upgradeconfig	/usr/local/bin/
