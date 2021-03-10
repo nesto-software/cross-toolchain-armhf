@@ -61,3 +61,4 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ${{ steps.toolchain-build.outputs.TOOLCHAIN_ARCHIVE_LOCATION }}
         asset_name: crosstool-ng-armhf.tar.xz
+        asset_content_type: application/gzip
