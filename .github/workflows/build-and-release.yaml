@@ -11,15 +11,15 @@ jobs:
     name: Build crosstool-ng and release
     runs-on: ubuntu-latest
 
-  steps:
-  - uses: actions/checkout@v2
-    with:
-      ref: 'master'
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: 'master'
 
-  - name: Build container
-    run: |
-      ./build-image.sh
+    - name: Build container
+      run: |
+        ./build-image.sh
 
-  - name: Build and extract toolchain
-    run: |
-      ./build-toolchain.sh
+    - name: Build and extract toolchain
+      run: |
+        ./build-toolchain.sh
