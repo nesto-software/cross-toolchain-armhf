@@ -22,7 +22,7 @@ jobs:
 
     - name: Build toolchain
       run: |
-        docker run -it --name=CT-NG ct-ng toolchain-build
+        docker run --name=CT-NG ct-ng toolchain-build
 
     - name: Extract toolchain
       id: toolchain-build
