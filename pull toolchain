@@ -9,3 +9,5 @@ rm "$tmp"
 
 # Copy archive using name from link.
 docker cp -L CT-NG:/root/toolchain "$name"
+
+echo "::set-output name=TOOLCHAIN_ARCHIVE_LOCATION::$name"
