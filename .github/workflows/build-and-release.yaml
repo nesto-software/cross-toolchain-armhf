@@ -1,0 +1,23 @@
+
+on:
+  push:
+    paths:
+      - 'VERSION'
+    branches: master
+  workflow_dispatch:
+
+jobs:
+  build-and-package:
+    name: Build crosstool-ng and release
+    runs-on: ubuntu-latest
+
+  steps:
+    - uses: actions/checkout@v2
+
+    - name: Build container
+      run: |
+        ./build-image.sh
+
+    - name: Build and extract toolchain
+      run: |
+        ./build-toolchain.sh
