@@ -1,8 +1,8 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/debian/.devcontainer/base.Dockerfile
 
-# [Choice] Debian version: buster, stretch
 ARG VARIANT="buster"
 FROM mcr.microsoft.com/vscode/devcontainers/base:0-${VARIANT}
+LABEL org.opencontainers.image.source https://github.com/nesto-software/cross-toolchain-armhf
 
 WORKDIR	/root
 
