@@ -29,4 +29,3 @@ COPY	in/toolchain-build	/usr/local/bin/
 COPY	in/crosstool-configure	/usr/local/bin/
 COPY	in/crosstool-upgradeconfig	/usr/local/bin/
 COPY	in/crosstool-ng.conf	/root/crosstool-NG/.config
-COPY	in/uclibc.conf		/root/uClibc/.config
