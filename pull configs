@@ -1,7 +1,0 @@
-#!/bin/bash
-
-cd "$(dirname "$0")"/in
-
-docker cp -L CT-NG:/etc/crosstool-ng/crosstool-ng.conf .
-
-docker cp -L CT-NG:/etc/uclibc/uclibc.conf .

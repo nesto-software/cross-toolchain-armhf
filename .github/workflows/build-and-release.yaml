@@ -12,6 +12,7 @@ jobs:
     runs-on: 'ubuntu-20.04'
     container:
       image: ghcr.io/${{ github.repository_owner }}/cross-toolchain-armhf-dev:latest
+      options: --user root
       credentials:
         username: ${{ github.repository_owner }}
         password: ${{ secrets.CR_PAT }}
@@ -23,12 +24,7 @@ jobs:
 
     - name: Build toolchain
       run: |
-        docker run --name=CT-NG ct-ng toolchain-build
-
-    - name: Extract toolchain
-      id: toolchain-build
-      run: |
-        ./pull\ toolchain
+        toolchain-build
 
     - name: Read the toolchain version
       id: version
@@ -60,6 +56,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ${{ steps.toolchain-build.outputs.TOOLCHAIN_ARCHIVE_LOCATION }}
+        asset_path: /root/x-tools/
         asset_name: crosstool-ng-armhf.tar.xz
         asset_content_type: application/gzip
