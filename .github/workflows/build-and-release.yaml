@@ -9,16 +9,17 @@ on:
 jobs:
   build-and-package:
     name: Build crosstool-ng and gh release
-    runs-on: ubuntu-latest
+    runs-on: 'ubuntu-20.04'
+    container:
+      image: ghcr.io/${{ github.repository_owner }}/cross-toolchain-armhf-dev:latest
+      credentials:
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.CR_PAT }}
 
     steps:
     - uses: actions/checkout@v2
       with:
         ref: 'master'
-
-    - name: Create build environment for toolchain
-      run: |
-        ./build-image.sh
 
     - name: Build toolchain
       run: |
