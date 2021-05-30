@@ -1,36 +1,11 @@
-crosstool-NG container
+Cross-toolchain for Raspberry Pi (armhf)
 ======================
 
-[![Build status][Build image]][Build]
+<p align="center">
+  <img src=".github/imgs/project_logo.png">
+</p>
 
-This is a [Docker](http://docker.com) container for [crosstool-NG](http://crosstool-ng.org) with configurable [uClibc](http://www.uclibc.org) for building toolchains. It was created to support the [Docker nano](https://github.com/Docker-nano) project.
+[![.github/workflows/build-and-release.yaml](https://github.com/nesto-software/cross-toolchain-armhf/workflows/.github/workflows/build-and-release.yaml/badge.svg)](https://github.com/nesto-software/cross-toolchain-armhf/actions/workflows/build-and-release.yaml)
+[![https://github.com/nesto-software/ProxySuite](https://img.shields.io/badge/powering-ProxySuite-blue)](https://github.com/nesto-software/ProxySuite)
 
-Building
---------
-
-To build the default toolchain follow these steps.
-
-1. `./build\ image` – Build the Docker image locally and tag as *ct-ng*.
-2. `./build\ toolchain` – Build the toolchain from the local *ct-ng* image.
-
-The compressed toolchain tarball is copied to your working directory.
-
-Customizing the build
----------------------
-
-The build can be customized from within the container. To enter the container run `run container`. The following commands are available within the container.
-
-* `crosstool-configure` – Configure crosstool-NG.
-* `uclibc-configure` – Configure uClibc.
-* `toolchain-build` – Build the toolchain.
-
-To copy the toolchain to the host run `pull toolchain` from the host. The following scripts are available on the host.
-
-* `run container` – Removes any previous container started by this script and runs a new interactive container named *CT-NG*.
-* `pull configs` – Copies crosstool-NG and uClibc configurations from the *CT-NG* container.
-* `pull toolchain` – Copies the toolchain from the *CT-NG* container.
-
-If you wish to build the modified toolchain outside the container you must first `pull configs` then follow the steps in [Building](#building) to rebuild the image.
-
-  [Build]: https://travis-ci.org/Docker-nano/crosstool-NG
-  [Build image]: https://travis-ci.org/Docker-nano/crosstool-NG.svg?branch=master "Build status"
+A cross-toolchain built using <a href="https://crosstool-ng.github.io/" target="_blank">crosstool-NG</a> that runs on x86-64 and targets the armhf architecture - maintained by Nesto and used for projects like <a href="https://github.com/nesto-software/ProxySuite">ProxySuite</a>.
