@@ -38,6 +38,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         custom_tag: "${{ steps.version.outputs.NEW_VERSION }}"
+        tag_prefix: 
 
     - name: Create a GitHub release
       uses: actions/create-release@v1

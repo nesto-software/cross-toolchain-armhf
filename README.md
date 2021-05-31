@@ -29,3 +29,26 @@ Versioning
 ==========
 
 The cross-toolchain version corresponds to the raspberry pi Linux kernel version it was built against.
+
+<table>
+
+  <tr>
+    <th>Kernel Version</th>
+    <th>glibc Version</th>
+    <th>Release</th>
+  </tr>
+
+  <tr>
+    <td>5.10 (longterm)</td>
+    <td>2.28</td>
+    <td><a href="https://github.com/nesto-software/cross-toolchain-armhf/releases/tag/rpi-5.10.y">rpi-5.10.y</a></td>
+  </tr>
+
+</table>
+
+FAQ
+=====
+
+### How to find the kernel/glibc version of my raspios image?
+
+Search for your image version in the [raspios_armhf image directory](https://downloads.raspberrypi.org/raspios_armhf/images/) or the [raspios_armhf archive](https://downloads.raspberrypi.org/raspios_armhf/archive/). Open the `*-*-*-raspios-*-armhf.info` (image) or `release_notes.txt` (archive) file and look for the kernel/glibc version. 

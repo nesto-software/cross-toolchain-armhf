@@ -8,11 +8,11 @@ build() {
 
 	echo Building in "$build_dir"...
 
-	(cd "$build_dir" && CT_ALLOW_BUILD_AS_ROOT_SURE=LOL ct-ng build)
+	(cd "$build_dir" && HOME=/root/ CT_ALLOW_BUILD_AS_ROOT_SURE=LOL ct-ng build)
 }
 
 pack() {
-	cd ~/x-tools
+	cd /root/x-tools
 
 	if [[ -d ${last_build=$(ls -1dt */ | head -1)} ]]; then
 		echo Packing "$last_build"...
@@ -22,7 +22,7 @@ pack() {
 				\($((d=2**20, ($(stat -c%s "$tar") +d/2) /d)) MB,\
 				MD5: $(md5sum "$tar" | cut -f1 -d' ')\).
 
-			ln -sf "$PWD/$tar" ~/toolchain
+			ln -sf "$PWD/$tar" /root/toolchain
 		fi
 	fi
 }
