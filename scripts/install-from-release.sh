@@ -3,7 +3,7 @@ set -e
 
 TOOLCHAIN=arm-unknown-linux-gnueabi
 TOOLCHAIN_PATH=/opt/crosstool-ng/x-tools/${TOOLCHAIN}/bin
-DOWNLOAD_LOCATION=/tmp/crosstool-ng-armhf.tar.xz
+DOWNLOAD_LOCATION=/tmp/arm-unknown-linux-gnueabi.tar.xz
 
 # only prepare, download and install if not already available
 if [ ! -d "/opt/crosstool-ng/x-tools/${TOOLCHAIN}" ]; then
@@ -13,7 +13,7 @@ if [ ! -d "/opt/crosstool-ng/x-tools/${TOOLCHAIN}" ]; then
     sudo mkdir -p /opt/crosstool-ng/x-tools/
 
     curl -s https://api.github.com/repos/nesto-software/cross-toolchain-armhf/releases/latest \
-        | grep "/crosstool-ng-armhf.tar.xz" \
+        | grep "/arm-unknown-linux-gnueabi.tar.xz" \
         | cut -d : -f 2,3 \
         | tr -d \" \
         | wget -qi - -O "$DOWNLOAD_LOCATION"
