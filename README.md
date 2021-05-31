@@ -21,9 +21,11 @@ Scripts
 
 The following scripts are available inside the development container:
 
-- `sudo toolchain-build`
-- `sudo crosstool-upgradeconfig`
-- `sudo crosstool-configure`
+- `toolchain-build`
+- `crosstool-upgradeconfig`
+- `crosstool-configure`
+
+Note: You must run them as root inside the development container (e.g. using sudo).
 
 Versioning
 ==========
