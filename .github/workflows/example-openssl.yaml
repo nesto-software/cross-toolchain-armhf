@@ -23,11 +23,11 @@ jobs:
         apt-get update
         apt-get install -y curl sudo git build-essential
 
-    - name: Download and install latest toolchain
+    - name: Download and install latest cross-toolchain version
       run: |
         bash -c "$(curl -fsSL https://raw.githubusercontent.com/nesto-software/cross-toolchain-armhf/master/scripts/install-from-release.sh)"
 
-    - name: Source toolchain and compile openssl
+    - name: Source the toolchain's installer script and use cross-toolchain to compile openssl
       run: |
         echo "$(curl -fsSL https://raw.githubusercontent.com/nesto-software/cross-toolchain-armhf/master/scripts/install-from-release.sh)" > /tmp/init-cross-toolchain.sh
         source /tmp/init-cross-toolchain.sh
@@ -38,4 +38,3 @@ jobs:
         git checkout OpenSSL_1_1_1d
         ./Configure linux-generic32 --cross-compile-prefix=${TOOLCHAIN_PATH}/${TOOLCHAIN}- --prefix=$STAGING_DIR/usr/local/
         make
-        make install

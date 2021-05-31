@@ -59,7 +59,7 @@ Installation (from latest GitHub release)
 | **wget**  | `bash -c "$(wget -O- https://raw.githubusercontent.com/nesto-software/cross-toolchain-armhf/master/scripts/install-from-release.sh)"`   |
 
 
-Add the toolchain's bin directory to your path: `PATH="/opt/crosstool-ng/x-tools/${TOOLCHAIN}/bin:${PATH}"` with TOOLCHAIN being e.g. *arm-unknown-linux-gnueabi* (see versioning table above).
+Add the toolchain's bin directory to your path: `PATH="/opt/crosstool-ng/x-tools/${TOOLCHAIN}/bin:${PATH}"` with TOOLCHAIN being e.g. *arm-unknown-linux-gnueabi* (see versioning table above). You can also source the installer script above. It exports the env vars *TOOLCHAIN_PATH*, *TOOLCHAIN* and prepends *TOOLCHAIN_PATH* to *PATH* for you.
 
 FAQ
 =====
@@ -67,3 +67,7 @@ FAQ
 ### How to find the kernel/glibc version of my raspios image?
 
 Search for your image version in the [raspios_armhf image directory](https://downloads.raspberrypi.org/raspios_armhf/images/) or the [raspios_armhf archive](https://downloads.raspberrypi.org/raspios_armhf/archive/). Open the `*-*-*-raspios-*-armhf.info` (image) or `release_notes.txt` (archive) file and look for the kernel/glibc version. 
+
+### How to use this cross-toolchain?
+
+We have an [example workflow](https://github.com/nesto-software/cross-toolchain-armhf/actions/workflows/example-openssl.yaml) which shows how to build OpenSSL_1_1_1d with the latest version of this toolchain.
