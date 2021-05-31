@@ -33,18 +33,33 @@ The cross-toolchain version corresponds to the raspberry pi Linux kernel version
 <table>
 
   <tr>
+    <th>Toolchain Release</th>
+    <th>Toolchain Tuple</th>
     <th>Kernel Version</th>
     <th>glibc Version</th>
-    <th>Release</th>
+    <th>GCC Version</th>
   </tr>
 
   <tr>
+    <td><a href="https://github.com/nesto-software/cross-toolchain-armhf/releases/tag/rpi-5.10.y">rpi-5.10.y</a></td>
+    <td>arm-unknown-linux-gnueabi</td>
     <td>5.10 (longterm)</td>
     <td>2.28</td>
-    <td><a href="https://github.com/nesto-software/cross-toolchain-armhf/releases/tag/rpi-5.10.y">rpi-5.10.y</a></td>
+    <td>8.3.0</td>
   </tr>
 
 </table>
+
+Installation (from latest GitHub release)
+=========================================
+
+| Method    | Command                                                                                           |
+|:----------|:--------------------------------------------------------------------------------------------------|
+| **curl**  | `bash -c "$(curl -fsSL https://raw.githubusercontent.com/nesto-software/cross-toolchain-armhf/master/scripts/install-from-release.sh)"` |
+| **wget**  | `bash -c "$(wget -O- https://raw.githubusercontent.com/nesto-software/cross-toolchain-armhf/master/scripts/install-from-release.sh)"`   |
+
+
+Add the toolchain's bin directory to your path: `PATH="/opt/crosstool-ng/x-tools/${TOOLCHAIN}/bin:${PATH}"` with TOOLCHAIN being e.g. *arm-unknown-linux-gnueabi* (see versioning table above).
 
 FAQ
 =====
