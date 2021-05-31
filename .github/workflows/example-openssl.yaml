@@ -21,7 +21,7 @@ jobs:
     - name: Install prerequisites
       run: |
         apt-get update
-        apt-get install -y curl sudo git
+        apt-get install -y curl sudo git build-essential
 
     - name: Download and install latest toolchain
       run: |
