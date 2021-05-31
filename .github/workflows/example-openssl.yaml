@@ -6,6 +6,10 @@ on:
     branches: master
   workflow_dispatch:
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   build-and-package:
     name: Build openssl example
@@ -27,9 +31,11 @@ jobs:
       run: |
         echo "$(curl -fsSL https://raw.githubusercontent.com/nesto-software/cross-toolchain-armhf/master/scripts/install-from-release.sh)" > /tmp/init-cross-toolchain.sh
         source /tmp/init-cross-toolchain.sh
+        export STAGING_DIR=/usr/raspberry-build/staging
+        mkdir -p "${STAGING_DIR}"
         git clone https://github.com/openssl/openssl.git /tmp/openssl
         cd /tmp/openssl
         git checkout OpenSSL_1_1_1d
-        ./Configure linux-generic32 --cross-compile-prefix=/opt/crosstool-ng/x-tools/${TOOLCHAIN}/bin/arm-unknown-linux-gnueabi- --prefix=$STAGING_DIR/usr/local/
+        ./Configure linux-generic32 --cross-compile-prefix=${TOOLCHAIN_PATH}/${TOOLCHAIN}- --prefix=$STAGING_DIR/usr/local/
         make
         make install
