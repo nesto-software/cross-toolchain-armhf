@@ -6,7 +6,7 @@ TOOLCHAIN_PATH=/opt/crosstool-ng/x-tools/${TOOLCHAIN}/bin
 
 export DOWNLOAD_LOCATION=/tmp/crosstool-ng-armhf.tar.xz
 
-apt-get install -y curl wget xz-utils tar
+apt-get -qq install -y curl wget xz-utils tar > /dev/null
 
 sudo mkdir -p /opt/crosstool-ng/x-tools/
 
@@ -19,7 +19,7 @@ if [ ! -d "/opt/crosstool-ng/x-tools/${TOOLCHAIN}" ]; then
         | tr -d \" \
         | wget -qi - -O "$DOWNLOAD_LOCATION"
 
-    sudo tar xfv "$DOWNLOAD_LOCATION" -C /opt/crosstool-ng/x-tools/
+    sudo tar xf "$DOWNLOAD_LOCATION" -C /opt/crosstool-ng/x-tools/
 fi
 
 # let the caller source the toolchain
