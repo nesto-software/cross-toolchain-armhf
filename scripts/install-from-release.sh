@@ -8,7 +8,7 @@ DOWNLOAD_LOCATION=/tmp/crosstool-ng-armhf.tar.xz
 # only prepare, download and install if not already available
 if [ ! -d "/opt/crosstool-ng/x-tools/${TOOLCHAIN}" ]; then
 
-    sudo apt-get install -y curl wget xz-utils tar > /dev/null
+    sudo apt-get -qq install -y curl wget xz-utils tar > /dev/null
 
     sudo mkdir -p /opt/crosstool-ng/x-tools/
 

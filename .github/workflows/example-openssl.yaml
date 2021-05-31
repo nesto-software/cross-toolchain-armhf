@@ -22,3 +22,14 @@ jobs:
     - name: Download and install latest toolchain
       run: |
         bash -c "$(curl -fsSL https://raw.githubusercontent.com/nesto-software/cross-toolchain-armhf/master/scripts/install-from-release.sh)"
+
+    - name: Source toolchain and compile openssl
+      run: |
+        echo "$(curl -fsSL https://raw.githubusercontent.com/nesto-software/cross-toolchain-armhf/master/scripts/install-from-release.sh)" > /tmp/init-cross-toolchain.sh
+        source /tmp/init-cross-toolchain.sh
+        git clone https://github.com/openssl/openssl.git /tmp/openssl
+        cd /tmp/openssl
+        git checkout OpenSSL_1_1_1d
+        ./Configure linux-generic32 --cross-compile-prefix=/opt/crosstool-ng/x-tools/${TOOLCHAIN}/bin/arm-unknown-linux-gnueabi- --prefix=$STAGING_DIR/usr/local/
+        make
+        make install
