@@ -11,7 +11,7 @@ apt-get install -y curl wget xz-utils tar
 sudo mkdir -p /opt/crosstool-ng/x-tools/
 
 # only download and install if not already available
-if [ ! -d "/opt/crosstool-ng/x-tools/${TOOLCHAIN}" ]; then;
+if [ ! -d "/opt/crosstool-ng/x-tools/${TOOLCHAIN}" ]; then
 
     curl -s https://api.github.com/repos/nesto-software/cross-toolchain-armhf/releases/latest \
         | grep "/crosstool-ng-armhf.tar.xz" \

@@ -55,8 +55,8 @@ Installation (from latest GitHub release)
 
 | Method    | Command                                                                                           |
 |:----------|:--------------------------------------------------------------------------------------------------|
-| **curl**  | `bash -c "$(curl -fsSL https://raw.githubusercontent.com/nesto-software/cross-toolchain-armhf/master/scripts/install-from-release.sh)"` |
-| **wget**  | `bash -c "$(wget -O- https://raw.githubusercontent.com/nesto-software/cross-toolchain-armhf/master/scripts/install-from-release.sh)"`   |
+| **curl**  | `sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/nesto-software/cross-toolchain-armhf/master/scripts/install-from-release.sh)"` |
+| **wget**  | `sudo bash -c "$(wget -O- https://raw.githubusercontent.com/nesto-software/cross-toolchain-armhf/master/scripts/install-from-release.sh)"`   |
 
 
 Add the toolchain's bin directory to your path: `PATH="/opt/crosstool-ng/x-tools/${TOOLCHAIN}/bin:${PATH}"` with TOOLCHAIN being e.g. *arm-unknown-linux-gnueabi* (see versioning table above).
