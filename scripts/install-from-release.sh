@@ -5,7 +5,7 @@ TOOLCHAIN=arm-unknown-linux-gnueabi
 TOOLCHAIN_PATH=/opt/crosstool-ng/x-tools/${TOOLCHAIN}/bin
 DOWNLOAD_LOCATION=/tmp/arm-unknown-linux-gnueabi.tar.xz
 RELEASE="${1:-latest}"
-PATH_SUFFIX=
+PATH_SUFFIX=$RELEASE
 
 if [ "$RELEASE" != "latest" ]; then
     PATH_SUFFIX=tags/$RELEASE
